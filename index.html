@@ -133,12 +133,11 @@
   .svc-block h3{font-size:24px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:10px}
   .svc-block h3 .num{font-size:14px;color:var(--accent);font-weight:700}
   .svc-block p.lead{color:var(--muted);margin-bottom:22px;font-size:16px}
-  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .svc-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:.2s}
-  .svc-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-  .svc-card .ic{width:42px;height:42px;border-radius:12px;background:var(--pill-bg);display:grid;place-items:center;font-size:20px;margin-bottom:14px}
-  .svc-card h4{font-size:17px;font-weight:700;margin-bottom:6px}
-  .svc-card p{font-size:14.5px;color:var(--muted)}
+  .svc-list{list-style:none;display:flex;flex-direction:column;gap:0}
+  .svc-list li{padding:14px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--muted);display:flex;align-items:center;gap:12px}
+  .svc-list li:last-child{border-bottom:none}
+  .svc-list li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--accent);transform:rotate(45deg);flex-shrink:0}
+  .svc-list li strong{color:var(--ink);font-weight:600}
   .tagrow{display:flex;flex-wrap:wrap;gap:10px}
   .tag{background:var(--pill-bg);border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:14px;font-weight:500}
   .expect-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 28px}
@@ -247,18 +246,22 @@
   /* ---------- responsive ---------- */
   @media (max-width:900px){
     .hero-grid,.about-grid,.exp-grid,.tst-grid{grid-template-columns:1fr}
-    .svc-grid,.proj-grid,.art-grid{grid-template-columns:repeat(2,1fr)}
+    .proj-grid,.art-grid{grid-template-columns:repeat(2,1fr)}
     .proj-card.feature{flex-direction:column}
     .proj-card.feature .proj-thumb,.proj-card.feature .proj-body{width:100%}
     h1.hero-title{font-size:42px}
     .sec-title{font-size:32px}
     .nav-links{display:none}
+    .avail{display:none}
     .hamb{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:18px}
+    .brand{white-space:nowrap}
   }
   @media (max-width:560px){
-    .svc-grid,.proj-grid,.art-grid{grid-template-columns:1fr}
+    .proj-grid,.art-grid{grid-template-columns:1fr}
     .expect-list{grid-template-columns:1fr}
     h1.hero-title{font-size:34px}
+    .nav-inner{height:56px}
+    .brand{font-size:16px}
   }
 </style>
 </head>
@@ -320,27 +323,24 @@
     <div class="svc-block" data-reveal>
       <h3><span class="num">01</span> What I can do for you</h3>
       <p class="lead">I create custom web solutions that help businesses establish a strong online presence, streamline operations, and achieve their goals through modern, user-friendly applications.</p>
-      <div class="svc-grid">
-        <div class="svc-card"><div class="ic">🛠️</div><h4>Full-stack web development</h4><p>React, Next.js, and Node.js, front to back, shipped.</p></div>
-        <div class="svc-card"><div class="ic">📱</div><h4>Responsive & mobile-first</h4><p>Interfaces that feel native on every screen size.</p></div>
-        <div class="svc-card"><div class="ic">🔌</div><h4>APIs & integrations</h4><p>Third-party APIs, payments, auth, and data pipelines.</p></div>
-        <div class="svc-card"><div class="ic">🛒</div><h4>E-commerce & platforms</h4><p>Custom CMS, storefronts, and SaaS tooling.</p></div>
-        <div class="svc-card"><div class="ic">⚡</div><h4>Performance & SEO</h4><p>Fast loads, clean semantics, discoverable by design.</p></div>
-        <div class="svc-card"><div class="ic">🤖</div><h4>AI product features</h4><p>Whisper, diffusion, and LLM-powered product surfaces.</p></div>
-      </div>
+      <ul class="svc-list">
+        <li><strong>Full-stack web development</strong> with React, Next.js, and Node.js</li>
+        <li><strong>Responsive design</strong> and mobile-first development</li>
+        <li><strong>E-commerce, CMS,</strong> and custom platforms</li>
+        <li><strong>Performance optimization</strong> and SEO</li>
+      </ul>
     </div>
 
     <!-- Block 2: Applications I'm fluent in -->
     <div class="svc-block" data-reveal>
       <h3><span class="num">02</span> Applications I'm fluent in</h3>
       <p class="lead">I leverage a modern, versatile technology stack to build robust applications that are efficient, scalable, and built to last.</p>
-      <div class="tagrow">
-        <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span>
-        <span class="tag">TailwindCSS</span><span class="tag">Node.js</span><span class="tag">Express</span>
-        <span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">Supabase</span>
-        <span class="tag">WebSockets</span><span class="tag">Electron</span><span class="tag">Python</span>
-        <span class="tag">Figma</span><span class="tag">Vercel</span><span class="tag">Git</span>
-      </div>
+      <ul class="svc-list">
+        <li><strong>React, Next.js, TypeScript,</strong> TailwindCSS</li>
+        <li><strong>Node.js, Express,</strong> GraphQL, MongoDB</li>
+        <li><strong>Figma,</strong> WebFlow</li>
+        <li><strong>Docker, AWS, Vercel,</strong> Git</li>
+      </ul>
     </div>
 
     <!-- Block 3: What you can expect -->
@@ -353,7 +353,6 @@
         <li>On-time delivery and budget adherence</li>
         <li>Scalable and secure architecture</li>
         <li>Ongoing support after launch</li>
-        <li>Product thinking, not just tickets</li>
       </ul>
     </div>
   </div>
@@ -401,7 +400,7 @@
           <h3 class="proj-name">Deck</h3>
           <p class="proj-desc">A local command-center dashboard for creators who live on their desktop.</p>
           <div class="proj-tags"><span>Electron</span><span>React</span><span>Node</span></div>
-          <a href="#contact" class="proj-link">Preview →</a>
+          <span class="proj-link">Local project</span>
         </div>
       </article>
 
@@ -412,7 +411,7 @@
           <h3 class="proj-name">PM Odyssey</h3>
           <p class="proj-desc">A yearlong project management roadmap — 4 quarters of interactive topics, reading lists, and practice exercises.</p>
           <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <a href="#contact" class="proj-link">Preview →</a>
+          <span class="proj-link">Local project</span>
         </div>
       </article>
 
@@ -423,7 +422,7 @@
           <h3 class="proj-name">Google Dorking Playground</h3>
           <p class="proj-desc">An interactive OSINT learning lab with 30+ dorks, a dork builder, and hands-on scenarios — fully client-side.</p>
           <div class="proj-tags"><span>React</span><span>Vite</span><span>Tailwind</span></div>
-          <a href="https://inknikk.github.io/google-dorking-playground/" class="proj-link" target="_blank" rel="noopener">Live →</a>
+          <span class="proj-link">Local project</span>
         </div>
       </article>
     </div>
@@ -569,10 +568,23 @@
   }, {threshold:0.12});
   document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
 
-  // FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(q=>{
-    q.addEventListener('click', ()=> q.parentElement.classList.toggle('open'));
-  });
+  // Mobile nav toggle
+  const hamb = document.querySelector('.hamb');
+  const navLinks = document.querySelector('.nav-links');
+  if(hamb && navLinks){
+    hamb.addEventListener('click', ()=>{
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '56px';
+      navLinks.style.left = '0';
+      navLinks.style.right = '0';
+      navLinks.style.background = 'var(--bg)';
+      navLinks.style.padding = '16px 22px';
+      navLinks.style.borderBottom = '1px solid var(--line)';
+      navLinks.style.zIndex = '100';
+    });
+  }
 </script>
 </body>
 </html>
