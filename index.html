@@ -128,21 +128,49 @@
   .sec-title{font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:14px}
   .sec-desc{color:var(--muted);font-size:16.5px;max-width:620px;margin-bottom:34px}
 
-  /* ---------- SERVICES (3 sub-blocks, like ayoola) ---------- */
-  .svc-block{margin-bottom:46px}
-  .svc-block h3{font-size:24px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:10px}
-  .svc-block h3 .num{font-size:14px;color:var(--accent);font-weight:700}
-  .svc-block p.lead{color:var(--muted);margin-bottom:22px;font-size:16px}
-  .svc-list{list-style:none;display:flex;flex-direction:column;gap:0}
-  .svc-list li{padding:14px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--muted);display:flex;align-items:center;gap:12px}
-  .svc-list li:last-child{border-bottom:none}
-  .svc-list li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--accent);transform:rotate(45deg);flex-shrink:0}
-  .svc-list li strong{color:var(--ink);font-weight:600}
-  .tagrow{display:flex;flex-wrap:wrap;gap:10px}
-  .tag{background:var(--pill-bg);border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:14px;font-weight:500}
-  .expect-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 28px}
-  .expect-list li{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--muted)}
-  .expect-list li::before{content:"✓";color:var(--accent);font-weight:800}
+  /* ---------- SERVICES ---------- */
+  .svc-block{
+    display:grid;grid-template-columns:300px 1fr;gap:40px;
+    padding:48px 0;border-top:1px solid var(--line);
+  }
+  .svc-block:last-child{border-bottom:1px solid var(--line)}
+  .svc-aside .svc-num{
+    display:block;font-size:56px;font-weight:800;line-height:.9;letter-spacing:-.03em;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:14px;
+  }
+  .svc-aside h3{font-size:22px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px}
+  .svc-aside p.lead{color:var(--muted);font-size:15px;line-height:1.6;max-width:300px}
+
+  /* capabilities */
+  .cap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .cap-card{
+    position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px 22px 20px;transition:transform .25s, box-shadow .25s;
+  }
+  .cap-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--grad);transform:scaleY(0);transform-origin:top;transition:transform .3s}
+  .cap-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -26px rgba(0,0,0,.45)}
+  .cap-card:hover::before{transform:scaleY(1)}
+  .cap-ico{width:42px;height:42px;border-radius:12px;background:var(--pill-bg);border:1px solid var(--line);display:grid;place-items:center;color:var(--accent);margin-bottom:14px;transition:.25s}
+  .cap-ico svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .cap-card:hover .cap-ico{color:#fff;background:var(--accent);border-color:var(--accent)}
+  .cap-card h4{font-size:16px;font-weight:700;margin-bottom:6px}
+  .cap-card p{font-size:14px;color:var(--muted);line-height:1.5}
+
+  /* tech matrix */
+  .tech-matrix{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .tech-group{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+  .tech-group .tg-title{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .tech-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .tech-chips span{font-size:13.5px;font-weight:500;color:var(--ink);background:var(--pill-bg);border:1px solid var(--line);border-radius:8px;padding:6px 11px}
+
+  /* expectations */
+  .svc-exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .svc-exp-card{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;transition:.2s}
+  .svc-exp-card:hover{border-color:var(--accent)}
+  .svc-exp-check{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--grad);display:grid;place-items:center;margin-top:1px}
+  .svc-exp-check svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .svc-exp-card p{font-size:14.5px;color:var(--muted);line-height:1.5}
 
   /* ---------- PROJECTS ---------- */
   .proj-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:30px}
@@ -247,6 +275,7 @@
   @media (max-width:900px){
     .hero-grid,.about-grid,.exp-grid,.tst-grid{grid-template-columns:1fr}
     .proj-grid,.art-grid{grid-template-columns:repeat(2,1fr)}
+    .svc-block{grid-template-columns:1fr;gap:22px;padding:40px 0}
     .proj-card.feature{flex-direction:column}
     .proj-card.feature .proj-thumb,.proj-card.feature .proj-body{width:100%}
     h1.hero-title{font-size:42px}
@@ -258,7 +287,8 @@
   }
   @media (max-width:560px){
     .proj-grid,.art-grid{grid-template-columns:1fr}
-    .expect-list{grid-template-columns:1fr}
+    .cap-grid,.tech-matrix,.svc-exp-grid{grid-template-columns:1fr}
+    .svc-aside .svc-num{font-size:44px}
     h1.hero-title{font-size:34px}
     .nav-inner{height:56px}
     .brand{font-size:16px}
@@ -321,39 +351,64 @@
 
     <!-- Block 1: What I can do -->
     <div class="svc-block" data-reveal>
-      <h3><span class="num">01</span> What I can do for you</h3>
-      <p class="lead">I create custom web solutions that help businesses establish a strong online presence, streamline operations, and achieve their goals through modern, user-friendly applications.</p>
-      <ul class="svc-list">
-        <li><strong>Full-stack web development</strong> with React, Next.js, and Node.js</li>
-        <li><strong>Responsive design</strong> and mobile-first development</li>
-        <li><strong>E-commerce, CMS,</strong> and custom platforms</li>
-        <li><strong>Performance optimization</strong> and SEO</li>
-      </ul>
+      <div class="svc-aside">
+        <span class="svc-num">01</span>
+        <h3>What I can do for you</h3>
+        <p class="lead">I create custom web solutions that help businesses establish a strong online presence, streamline operations, and achieve their goals through modern, user-friendly applications.</p>
+      </div>
+      <div class="cap-grid">
+        <div class="cap-card">
+          <div class="cap-ico"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/><path d="M3 18l9 5 9-5"/></svg></div>
+          <h4>Full-stack web development</h4>
+          <p>End-to-end products built with React, Next.js, and Node.js.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-ico"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></div>
+          <h4>Responsive &amp; mobile-first</h4>
+          <p>Interfaces that feel right on every screen, from phone to desktop.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-ico"><svg viewBox="0 0 24 24"><path d="M4 7h16l-1.2 12.2a1 1 0 0 1-1 .8H6.2a1 1 0 0 1-1-.8L4 7Z"/><path d="M4 7 3 3H1"/><circle cx="9" cy="20" r="1"/><circle cx="15" cy="20" r="1"/></svg></div>
+          <h4>E-commerce, CMS &amp; platforms</h4>
+          <p>Custom stores, content systems, and bespoke web platforms.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></div>
+          <h4>Performance &amp; SEO</h4>
+          <p>Fast, discoverable sites that rank and convert.</p>
+        </div>
+      </div>
     </div>
 
     <!-- Block 2: Applications I'm fluent in -->
     <div class="svc-block" data-reveal>
-      <h3><span class="num">02</span> Applications I'm fluent in</h3>
-      <p class="lead">I leverage a modern, versatile technology stack to build robust applications that are efficient, scalable, and built to last.</p>
-      <ul class="svc-list">
-        <li><strong>React, Next.js, TypeScript,</strong> TailwindCSS</li>
-        <li><strong>Node.js, Express,</strong> GraphQL, MongoDB</li>
-        <li><strong>Figma,</strong> WebFlow</li>
-        <li><strong>Docker, AWS, Vercel,</strong> Git</li>
-      </ul>
+      <div class="svc-aside">
+        <span class="svc-num">02</span>
+        <h3>Applications I'm fluent in</h3>
+        <p class="lead">I leverage a modern, versatile technology stack to build robust applications that are efficient, scalable, and built to last.</p>
+      </div>
+      <div class="tech-matrix">
+        <div class="tech-group"><div class="tg-title">Frontend</div><div class="tech-chips"><span>React</span><span>Next.js</span><span>TypeScript</span><span>TailwindCSS</span></div></div>
+        <div class="tech-group"><div class="tg-title">Backend</div><div class="tech-chips"><span>Node.js</span><span>Express</span><span>GraphQL</span><span>MongoDB</span></div></div>
+        <div class="tech-group"><div class="tg-title">Design</div><div class="tech-chips"><span>Figma</span><span>WebFlow</span></div></div>
+        <div class="tech-group"><div class="tg-title">Infra &amp; DevOps</div><div class="tech-chips"><span>Docker</span><span>AWS</span><span>Vercel</span><span>Git</span></div></div>
+      </div>
     </div>
 
     <!-- Block 3: What you can expect -->
     <div class="svc-block" data-reveal>
-      <h3><span class="num">03</span> What you can expect</h3>
-      <p class="lead">A professional, transparent, and collaborative development experience focused on delivering high-quality results that align with your vision and business objectives.</p>
-      <ul class="expect-list">
-        <li>Regular communication and progress updates</li>
-        <li>High-quality, maintainable code with documentation</li>
-        <li>On-time delivery and budget adherence</li>
-        <li>Scalable and secure architecture</li>
-        <li>Ongoing support after launch</li>
-      </ul>
+      <div class="svc-aside">
+        <span class="svc-num">03</span>
+        <h3>What you can expect</h3>
+        <p class="lead">A professional, transparent, and collaborative development experience focused on delivering high-quality results that align with your vision and business objectives.</p>
+      </div>
+      <div class="svc-exp-grid">
+        <div class="svc-exp-card"><span class="svc-exp-check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span><p>Regular communication and progress updates</p></div>
+        <div class="svc-exp-card"><span class="svc-exp-check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span><p>High-quality, maintainable code with documentation</p></div>
+        <div class="svc-exp-card"><span class="svc-exp-check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span><p>On-time delivery and budget adherence</p></div>
+        <div class="svc-exp-card"><span class="svc-exp-check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span><p>Scalable and secure architecture</p></div>
+        <div class="svc-exp-card"><span class="svc-exp-check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg></span><p>Ongoing support after launch</p></div>
+      </div>
     </div>
   </div>
 </section>
